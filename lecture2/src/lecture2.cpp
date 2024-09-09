@@ -1,4 +1,4 @@
-#include "lecture2.hpp"
+// #include "lecture2.hpp"
 
 #include <iomanip>  // for output manipulator std::setprecision()
 #include <iostream>
