@@ -319,7 +319,7 @@ int main() {
     // std::cout << s.size() << '\n';      // 31
     // std::cout << s.capacity() << '\n';  // 60
 
-    //</> 22
+    //</> 24
     //=====================
     // std::string full_name;
     // full_name.reserve(100);  // allocate memory for 100 characters
@@ -440,4 +440,349 @@ int main() {
     // int c_array1[3]{};        // ok: 3 is a compile-time constant
     // int c_array2[length1]{};  // ok: length1 is a compile-time constant
     // int c_array3[length2]{};  // error: length2 is not a compile-time constant
+
+    //</> 31 -- C Arrays
+    //=====================
+    // constexpr size_t length{3};
+
+    // int a1[length]{1, 2, 3};
+    // std::cout << a1[0] << '\n';  // 1
+    // a1[0] = 10;                  // First item is now 10
+
+    // // regular for loop
+    // for (size_t i{0}; i < length; ++i)
+    //     std::cout << a1[i] << ' ';
+    // std::cout << '\n';
+
+    // // range-based for loop
+    // for (const auto &item : a1)
+    //     std::cout << item << ' ';
+    // std::cout << '\n';
+
+    //</> 31 -- C++ Arrays
+    //=====================
+    // constexpr size_t length{3};
+
+    // std::array<int, length> a2{10, 20, 30};
+    // std::cout << a2.at(0) << '\n';    // 10
+    // std::cout << a2.empty() << '\n';  // 0 (false)
+    // std::cout << a2.size() << '\n';   // 3
+    // std::cout << a2.front() << '\n';  // 10
+    // std::cout << a2.back() << '\n';   // 30
+    // a2.at(0) = 100;                   // [100, 20, 30]
+
+    // // regular for loop
+    // for (size_t i{0}; i < length; ++i)
+    //     std::cout << a2.at(i) << ' ';
+    // std::cout << '\n';
+
+    // // range-based for loop
+    // for (const auto &item : a2)
+    //     std::cout << item << ' ';
+    // std::cout << '\n';
+
+    // a2.fill(0);  // [0, 0, 0]
+
+    //</> 32 -- C-style arrays
+    //=====================
+    // int numbers[2][3]{
+    //     {1, 2, 3},  // row 0
+    //     {4, 5, 6}   // row 1
+    // };
+
+    // // parse numbers
+    // for (int i = 0; i < 2; i++) {
+    //     for (int j = 0; j < 3; j++) {
+    //         std::cout << numbers[i][j];
+    //     }
+    //     std::cout << '\n';
+    // }
+    // std::cout << '\n';
+
+    //</> 32 -- C++ arrays
+    //=====================
+    // std::array<std::array<int, 3>, 2> numbers{{
+    //     // note the double braces
+    //     {1, 2, 3},  // row 0
+    //     {4, 5, 6}   // row 1
+    // }};
+    // // parse numbers
+    // for (int i = 0; i < 2; i++) {
+    //     for (int j = 0; j < 3; j++) {
+    //         std::cout << numbers[i][j];
+    //     }
+    //     std::cout << '\n';
+    // }
+    // std::cout << '\n';
+
+    //</> 33 -- C-style arrays
+    //=====================
+    // int numbers[3][2][3]{
+    //     {{1, 2, 3}, {4, 5, 6}},
+    //     {{7, 8, 9}, {10, 11, 12}},
+    //     {{13, 14, 15}, {16, 17, 18}}
+    // };
+
+    // // parse numbers
+    // for (int i = 0; i < 3; i++) {
+    //     for (int j = 0; j < 2; j++) {
+    //         for (int k = 0; k < 3; k++) {
+    //             std::cout << numbers[i][j][k];
+    //         }
+    //         std::cout << '\n';
+    //     }
+    //     std::cout << '\n';
+    // }
+
+    //</> 33 -- C++ arrays
+    //=====================
+    // std::array<std::array<std::array<int, 3>, 2>, 3> numbers{{{{{1, 2, 3}, {4, 5, 6}}},
+    //                                                           {{{7, 8, 9}, {10, 11, 12}}},
+    //                                                           {{{13, 14, 15}, {16, 17, 18}}}}};
+
+    // // parse numbers
+    // for (int i = 0; i < 3; i++) {
+    //     for (int j = 0; j < 2; j++) {
+    //         for (int k = 0; k < 3; k++) {
+    //             std::cout << numbers[i][j][k];
+    //         }
+    //         std::cout << '\n';
+    //     }
+    //     std::cout << '\n';
+    // }
+
+    //</> 34
+    //=====================
+    // std::vector<int> vec1 = {1, 2, 3};
+    // std::vector<int> vec2 = {1, 2, 3, 4, 5};
+
+    // std::cout << sizeof(vec1) << '\n';
+    // std::cout << sizeof(vec2) << '\n';
+
+    //</> 34
+    //=====================
+    // std::vector<int> v1{-1, 3, 5};   // initialization with explicit values
+    // std::vector<int> v2{};           // zero initialization
+    // std::cout << v2.size() << '\n';  // ???
+    // std::cout << v2.at(0) << '\n';   // ???
+    // v2 = v1;                         // copy items of v1 into v2
+    // auto v3{v1};                     // initialization from an existing vector
+
+    //</> 35
+    //=====================
+    // std::vector<int> vec = {1, 2, 3, 4, 5};
+
+    // std::cout << "Initial size: " << vec.size() << '\n';
+    // std::cout << "Initial capacity: " << vec.capacity() << '\n';
+
+    // // Reserve space
+    // vec.reserve(20);
+    // std::cout << "Size: " << vec.size() << '\n';
+    // std::cout << "Capacity: " << vec.capacity() << '\n';
+
+    // // Add more elements to the vector
+    // for (auto i{0}; i < 60; ++i)
+    //     vec.push_back(i);
+
+    // // Display updated size and capacity
+    // std::cout << "Size: " << vec.size() << '\n';
+    // std::cout << "Capacity: " << vec.capacity() << '\n';
+
+    // // Shrink the vector to fit its size
+    // vec.shrink_to_fit();
+    // std::cout << "Size: " << vec.size() << '\n';
+    // std::cout << "Capacity: " << vec.capacity() << '\n';
+
+    //</> 36
+    //=====================
+    // std::vector<int> v1{-1, 3, 5};   // initialization with explicit values
+    // std::vector<int> v2{};           // zero initialization
+    // std::cout << v2.size() << '\n';  // ???
+    // std::cout << v2.at(0) << '\n';   // ???
+    // v2 = v1;                         // copy items of v1 into v2
+    // auto v3{v1};                     // initialization from an existing vector
+
+    //</> 37
+    //=====================
+    // std::vector<int> numbers{-1, 3, 5, -9};  // initialization with 4 items
+
+    // std::cout << numbers.front() << '\n';  // -1
+    // std::cout << numbers.back() << '\n';   // -9
+
+    // // indexing operator (no bounds check)
+    // numbers[0] = -2;                  // [-2, 3, 5, -9]
+    // std::cout << numbers[0] << '\n';  // -2
+    // // at() method
+    // numbers.at(0) = 1;                   // [1, 3, 5, -9]
+    // std::cout << numbers.at(3) << '\n';  // 4th item - bounds check
+
+    // // regular for loop
+    // for (size_t i{0}; i < numbers.size(); ++i)
+    //     numbers[i] = 0;
+    // std::cout << '\n';
+
+    // // ranged-base for loop
+    // for (auto &item : numbers)
+    //     item = 1;
+    // std::cout << '\n';
+
+    // numbers.assign({1, 2, 3, 4});  // replace entire content with new values
+
+    //</> 38
+    //=====================
+    // std::vector<int> my_vector;
+
+    // // Add elements to the vector using push_back()
+    // my_vector.push_back(10);
+    // my_vector.push_back(20);
+    // my_vector.push_back(30);
+
+    // // Output the elements of the vector
+    // std::cout << "Elements in my_vector: ";
+    // for (size_t i{0}; i < my_vector.size(); ++i) {
+    //     std::cout << my_vector.at(i) << " ";
+    // }
+    // std::cout << '\n';
+
+    //</> 39
+    //=====================
+    // // Declare a vector of pairs of integers
+    // std::vector<std::pair<int, int>> pair_vector;
+
+    // // Add elements to the vector using emplace_back()
+    // pair_vector.emplace_back(1, 2);
+    // pair_vector.emplace_back(3, 4);
+    // pair_vector.emplace_back(5, 6);
+
+    // // Output the elements of the vector
+    // for (const auto& p : pair_vector) {
+    //     std::cout << "First: " << p.first << ", Second: " << p.second << '\n';
+    // }
+
+    //</> 40
+    //=====================
+    // // Declare and initialize a vector of integers
+    // std::vector<int> my_vector = {1, 2, 3, 5, 6};
+
+    // // Insert a single element at the 4th position (index 3)
+    // my_vector.insert(my_vector.begin() + 3, 4);
+    // // Output the elements of the vector
+    // for (size_t i{0}; i < my_vector.size(); ++i) {
+    //     std::cout << my_vector.at(i) << " ";
+    // }
+    // std::cout << '\n';
+
+    // // Insert multiple elements at the end
+    // my_vector.insert(my_vector.end(), {7, 8, 9});
+    // // Output the elements of the vector
+    // for (size_t i{0}; i < my_vector.size(); ++i) {
+    //     std::cout << my_vector.at(i) << " ";
+    // }
+    // std::cout << '\n';
+
+    // // Insert multiple copies of the same value
+    // my_vector.insert(my_vector.begin(), 3, 0);
+    // // Output the elements of the vector
+    // for (size_t i{0}; i < my_vector.size(); ++i) {
+    //     std::cout << my_vector.at(i) << " ";
+    // }
+    // std::cout << '\n';
+
+    //</> 41
+    //=====================
+    // std::vector<std::pair<int, std::string>> vec;
+
+    // // Use emplace() to insert elements
+    // vec.emplace(vec.begin(), 1, "one");
+    // for (const auto& p : vec) {
+    //     std::cout << "First: " << p.first << ", Second: " << p.second << '\n';
+    // }
+    // std::cout << '\n';
+
+    // vec.emplace(vec.end(), 3, "three");
+    // for (const auto& p : vec) {
+    //     std::cout << "First: " << p.first << ", Second: " << p.second << '\n';
+    // }
+    // std::cout << '\n';
+
+    // vec.emplace(vec.end(), 4, "four");
+    // for (const auto& p : vec) {
+    //     std::cout << "First: " << p.first << ", Second: " << p.second << '\n';
+    // }
+    // std::cout << '\n';
+
+    // vec.emplace(vec.begin() + 1, 2, "two");
+    // for (const auto& p : vec) {
+    //     std::cout << "First: " << p.first << ", Second: " << p.second << '\n';
+    // }
+    // std::cout << '\n';
+
+    //</> 42
+    //=====================
+    // // Declare and initialize a vector of integers
+    // std::vector<int> vec = {1, 2, 3, 4, 5};
+
+    // // Use pop_back() to remove the last element
+    // vec.pop_back();
+
+    // // Output the elements of the vector after pop_back()
+    // std::cout << "Elements in vec after pop_back: ";
+    // for (const int& value : vec) {
+    //     std::cout << value << " ";
+    // }
+    // std::cout << '\n';
+
+    //</> 43
+    //=====================
+    // // Declare and initialize a vector of integers
+    // std::vector<int> vec = {1, 2, 3, 4, 5};
+
+    // // Remove the element at the 2nd position (index 1)
+    // vec.erase(vec.begin() + 1);
+    // // Output the elements of the vector after erase()
+    // std::cout << "Elements in vec after erase(): ";
+    // for (const int& value : vec) {
+    //     std::cout << value << " ";
+    // }
+    // std::cout << '\n';
+
+    // // Remove a range of elements (2nd and 3rd)
+    // vec.erase(vec.begin() + 1, vec.begin() + 3);
+
+    // // Output the elements of the vector after erase()
+    // std::cout << "Elements in vec after erase(): ";
+    // for (const int& value : vec) {
+    //     std::cout << value << " ";
+    // }
+    // std::cout << '\n';
+
+    //</> 43
+    //=====================
+    // // Declare and initialize a vector of integers
+    // std::vector<int> vec = {1, 2, 3, 4, 5};
+
+    // // Clear all elements from the vector
+    // vec.clear();
+
+    // // Output the size of the vector after clear
+    // std::cout << "Size of vec after clear: " << vec.size() << '\n';
+
+    // // Check if the vector is empty
+    // if (vec.empty()) {
+    //     std::cout << "vec is now empty.\n";
+    // } else {
+    //     std::cout << "vec is not empty.\n";
+    // }
+
+    //</> 44-1
+    //=====================
+    // std::vector<int> vec = {10, 20, 30};
+    // vec.pop_back();
+    // std::cout << vec.back() << '\n';
+
+    //</> 44-2
+    //=====================
+    // std::vector<int> vec = {1, 2, 3};
+    // vec.clear();
+    // std::cout << vec.size() << '\n';
 }
