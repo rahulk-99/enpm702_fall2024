@@ -25,18 +25,6 @@ union MyUnion {
 using namespace std::literals::string_literals;
 
 int main() {
-    //</> 1
-    //=====================
-    // std::string s{"hello"};
-    // std::cout << "-- string --" << '\n';
-    // std::cout << s << '\n';
-
-    // std::vector v{1, 2, 3};
-    // std::cout << "-- vector --" << '\n';
-
-    // for (const auto &item: v){
-    //     std::cout << item << '\n';
-    // }
 
     //</> 1
     //=====================
@@ -91,51 +79,12 @@ int main() {
 
     //</> 5
     //=====================
-    // std::string my_string{"short string"};
-    // std::cout << sizeof(my_string) << '\n';
-    // my_string = "This is now a longer string";
-    // std::cout << sizeof(my_string) << '\n';
-    // my_string = "This is now an even longer string";
-    // std::cout << sizeof(my_string) << '\n';
-
-    //</> 6
-    //=====================
-    // std::string my_string{"Life is cool"};
-    // std::cout << "Size of: " << sizeof(my_string) << '\n';
-    // std::cout << "Length: " << my_string.size() << '\n';
-    // std::cout << "Capacity: " << my_string.capacity() << '\n';
-
-    //</> 7
-    //=====================
-    // std::string my_string{"Life is so good!"};
-    // std::cout << "Size of: " << sizeof(my_string) << '\n';
-    // std::cout << "Length: " << my_string.size() << '\n';
-    // std::cout << "Capacity: " << my_string.capacity() << '\n';
-
-    //</> 8
-    //=====================
-
-    // // Declare a union variable
-    // MyUnion data;
-    // // std::cout << "Size of: " << sizeof(data) << '\n';
-
-    // // Store an integer in the union
-    // data.int_value = 42;
-    // // Store a char in the union (overwrites the int)
-    // data.char_value = 'H';
-
-    // // Demonstrate that only the last assigned value is valid
-    // std::cout << "char: " << data.char_value << '\n';
-    // std::cout << "integer: " << data.int_value << '\n';
-
-    //</> 9
-    //=====================
     // std::string greeting{"hello"};
     // std::cout << greeting.length() << '\n';  // 5
     // // or
     // std::cout << greeting.size() << '\n';  // 5
 
-    //</> 10
+    //</> 6
     //=====================
     // // initialization
     // std::string quote{"Just a flesh wound"};
@@ -152,24 +101,24 @@ int main() {
     // quote[6] = 'A';     // modify the 7th character
     // quote.at(6) = 'a';  // modify the 7th character
 
-    //</> 11
+    //</> 7
     //=====================
     // std::string greeting{"Hi"};
     // std::cout << greeting[10] << '\n';  // UB
 
-    //</> 12
+    //</> 8
     //=====================
     // std::string greeting{"Hi"};
     // std::cout << greeting.at(10) << '\n';  // error
 
-    //</> 13
+    //</> 9
     //=====================
     // std::string quote{"Just a flesh wound!"};
     // /*
     //     write a for loop to print each character of the string
     // */
 
-    //</> 14
+    //</> 10
     //=====================
     // std::string quote{"Just a flesh wound!"};
 
@@ -178,7 +127,7 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 15
+    //</> 11
     //=====================
     // std::string greeting{"Hi"};
     // for (auto it{greeting.begin()};
@@ -187,7 +136,7 @@ int main() {
     //     std::cout << *it << '\n';
     // }
 
-    //</> 16
+    //</> 12
     //=====================
     // std::cout << "Enter your full name: ";  // e.g., John Doe
     // std::string name{};
@@ -199,7 +148,7 @@ int main() {
 
     // std::cout << "Name: " << name << ", ID: " << student_id << '\n';
 
-    //</> 17
+    //</> 13
     //=====================
     // std::cout << "Enter your full name: ";
     // std::string name{};
@@ -211,7 +160,7 @@ int main() {
 
     // std::cout << "Name: " << name << ", ID: " << student_id << '\n';
 
-    //</> 18
+    //</> 14
     //=====================
     // std::string s1{"Hello"};
     // s1 += " World";  // append a string
@@ -231,7 +180,7 @@ int main() {
     // s6.push_back('!');
     // std::cout << s6 << '\n';
 
-    //</> 19
+    //</> 15
     //=====================
     // std::string s1{"Hello World"};
     // std::string s2{"Big "};
@@ -248,7 +197,7 @@ int main() {
     // s5.insert(s5.begin() + 6, s6.begin(), s6.end());
     // std::cout << s5 << '\n';
 
-    //</> 20
+    //</> 16
     //=====================
     // std::string s1{"Hello World"};
     // s1.erase(s1.size() - 6, 6);  // remove 6 characters starting from index 5
@@ -270,6 +219,48 @@ int main() {
     // s5.pop_back();
     // std::cout << s5 << '\n';
 
+
+
+    //</> 17
+    //=====================
+    // std::string my_string{"short string"};
+    // std::cout << sizeof(my_string) << '\n';
+    // my_string = "This is now a longer string";
+    // std::cout << sizeof(my_string) << '\n';
+    // my_string = "This is now an even longer string";
+    // std::cout << sizeof(my_string) << '\n';
+
+    //</> 18
+    //=====================
+    // std::string my_string{"Life is cool"};
+    // std::cout << "Size of: " << sizeof(my_string) << '\n';
+    // std::cout << "Length: " << my_string.size() << '\n';
+    // std::cout << "Capacity: " << my_string.capacity() << '\n';
+
+    //</> 19
+    //=====================
+    // std::string my_string{"Life is so good!"};
+    // std::cout << "Size of: " << sizeof(my_string) << '\n';
+    // std::cout << "Length: " << my_string.size() << '\n';
+    // std::cout << "Capacity: " << my_string.capacity() << '\n';
+
+    //</> 20
+    //=====================
+
+    // // Declare a union variable
+    // MyUnion data;
+    // // std::cout << "Size of: " << sizeof(data) << '\n';
+
+    // // Store an integer in the union
+    // data.int_value = 42;
+    // // Store a char in the union (overwrites the int)
+    // data.char_value = 'H';
+
+    // // Demonstrate that only the last assigned value is valid
+    // std::cout << "char: " << data.char_value << '\n';
+    // std::cout << "integer: " << data.int_value << '\n';
+
+    
     //</> 21
     //=====================
     // std::string s;
@@ -304,7 +295,7 @@ int main() {
     // s.reserve(2);
     // std::cout << s.capacity() << '\n'; // 30
 
-    //</> 23
+    //</> Backup
     //=====================
     // //------ SSO: STACK Allocation
     // std::string s(3, 'A');              // "AAA"
@@ -319,7 +310,8 @@ int main() {
     // std::cout << s.size() << '\n';      // 31
     // std::cout << s.capacity() << '\n';  // 60
 
-    //</> 24
+
+    //</> 23
     //=====================
     // std::string full_name;
     // full_name.reserve(100);  // allocate memory for 100 characters
@@ -344,13 +336,13 @@ int main() {
 
     // std::cout << full_name << '\n';  // Albus P. Dumbledore
 
-    //</> 25
+    //</> 24
     //=====================
     // std::string greeting{"Hello"};
     // auto it = greeting.end();
     // std::cout << *it << '\n';
 
-    //</> 26
+    //</> 25
     //=====================
     // std::array<int, 5> a1{1, 2, 3, 4, 5};               // [1, 2, 3, 4, 5]
     // std::array<int, 10> a2{1, 2, 3, 4, 5, 6, 7, 8, 9};  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -358,7 +350,7 @@ int main() {
     // std::cout << sizeof(a1) << '\n';
     // std::cout << sizeof(a2) << '\n';
 
-    //</> 27 -- C arrays
+    //</> 26 -- C arrays
     //=====================
     // // zero initialization
     // int a1[2]{};  // [0, 0]
@@ -379,7 +371,7 @@ int main() {
     // int a6[3]{};               // [0, 0, 0]
     // std::fill(a6, a6 + 2, 1);  //[1, 1, 0]
 
-    //</> 27 -- C++ arrays
+    //</> 26 -- C++ arrays
     //=====================
     // // zero initialization
     // std::array<int, 2> a1{};  // [0, 0]
@@ -399,7 +391,7 @@ int main() {
     // std::array<int, 3> a5{};
     // std::fill(a5.begin(), a5.begin() + 2, 1);  //[1, 1, 0]
 
-    //</> 28
+    //</> 27
     //=====================
     // int my_array[5]{1, 2, 3, 4, 5};
     // std::cout << my_array << '\n';  // @
@@ -417,7 +409,7 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 29
+    //</> 28
     //=====================
     // int my_array[5]{1, 2, 3, 4, 5};
     // int* ptr = my_array;
@@ -426,7 +418,7 @@ int main() {
     //     // write code here
     // }
 
-    //</> 30
+    //</> 29
     //=====================
     // constexpr size_t length1{3};
     // size_t length2{3};
@@ -441,7 +433,7 @@ int main() {
     // int c_array2[length1]{};  // ok: length1 is a compile-time constant
     // int c_array3[length2]{};  // error: length2 is not a compile-time constant
 
-    //</> 31 -- C Arrays
+    //</> 30 -- C Arrays
     //=====================
     // constexpr size_t length{3};
 
@@ -459,7 +451,7 @@ int main() {
     //     std::cout << item << ' ';
     // std::cout << '\n';
 
-    //</> 31 -- C++ Arrays
+    //</> 30 -- C++ Arrays
     //=====================
     // constexpr size_t length{3};
 
@@ -483,7 +475,7 @@ int main() {
 
     // a2.fill(0);  // [0, 0, 0]
 
-    //</> 32 -- C-style arrays
+    //</> 31 -- C-style arrays
     //=====================
     // int numbers[2][3]{
     //     {1, 2, 3},  // row 0
@@ -499,7 +491,7 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 32 -- C++ arrays
+    //</> 31 -- C++ arrays
     //=====================
     // std::array<std::array<int, 3>, 2> numbers{{
     //     // note the double braces
@@ -515,7 +507,7 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 33 -- C-style arrays
+    //</> 32 -- C-style arrays
     //=====================
     // int numbers[3][2][3]{
     //     {{1, 2, 3}, {4, 5, 6}},
@@ -534,7 +526,7 @@ int main() {
     //     std::cout << '\n';
     // }
 
-    //</> 33 -- C++ arrays
+    //</> 32 -- C++ arrays
     //=====================
     // std::array<std::array<std::array<int, 3>, 2>, 3> numbers{{{{{1, 2, 3}, {4, 5, 6}}},
     //                                                           {{{7, 8, 9}, {10, 11, 12}}},
@@ -551,7 +543,7 @@ int main() {
     //     std::cout << '\n';
     // }
 
-    //</> 34
+    //</> 33
     //=====================
     // std::vector<int> vec1 = {1, 2, 3};
     // std::vector<int> vec2 = {1, 2, 3, 4, 5};
@@ -560,15 +552,6 @@ int main() {
     // std::cout << sizeof(vec2) << '\n';
 
     //</> 34
-    //=====================
-    // std::vector<int> v1{-1, 3, 5};   // initialization with explicit values
-    // std::vector<int> v2{};           // zero initialization
-    // std::cout << v2.size() << '\n';  // ???
-    // std::cout << v2.at(0) << '\n';   // ???
-    // v2 = v1;                         // copy items of v1 into v2
-    // auto v3{v1};                     // initialization from an existing vector
-
-    //</> 35
     //=====================
     // std::vector<int> vec = {1, 2, 3, 4, 5};
 
@@ -593,7 +576,7 @@ int main() {
     // std::cout << "Size: " << vec.size() << '\n';
     // std::cout << "Capacity: " << vec.capacity() << '\n';
 
-    //</> 36
+    //</> 35
     //=====================
     // std::vector<int> v1{-1, 3, 5};   // initialization with explicit values
     // std::vector<int> v2{};           // zero initialization
@@ -602,7 +585,7 @@ int main() {
     // v2 = v1;                         // copy items of v1 into v2
     // auto v3{v1};                     // initialization from an existing vector
 
-    //</> 37
+    //</> 36
     //=====================
     // std::vector<int> numbers{-1, 3, 5, -9};  // initialization with 4 items
 
@@ -628,7 +611,8 @@ int main() {
 
     // numbers.assign({1, 2, 3, 4});  // replace entire content with new values
 
-    //</> 38
+    
+    //</> 37
     //=====================
     // std::vector<int> my_vector;
 
@@ -644,7 +628,7 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 39
+    //</> 38
     //=====================
     // // Declare a vector of pairs of integers
     // std::vector<std::pair<int, int>> pair_vector;
@@ -659,7 +643,7 @@ int main() {
     //     std::cout << "First: " << p.first << ", Second: " << p.second << '\n';
     // }
 
-    //</> 40
+    //</> 39
     //=====================
     // // Declare and initialize a vector of integers
     // std::vector<int> my_vector = {1, 2, 3, 5, 6};
@@ -688,7 +672,7 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 41
+    //</> 40
     //=====================
     // std::vector<std::pair<int, std::string>> vec;
 
@@ -717,7 +701,7 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 42
+    //</> 41
     //=====================
     // // Declare and initialize a vector of integers
     // std::vector<int> vec = {1, 2, 3, 4, 5};
@@ -732,13 +716,14 @@ int main() {
     // }
     // std::cout << '\n';
 
-    //</> 43
+    //</> 42
     //=====================
     // // Declare and initialize a vector of integers
     // std::vector<int> vec = {1, 2, 3, 4, 5};
 
     // // Remove the element at the 2nd position (index 1)
     // vec.erase(vec.begin() + 1);
+
     // // Output the elements of the vector after erase()
     // std::cout << "Elements in vec after erase(): ";
     // for (const int& value : vec) {
