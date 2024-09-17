@@ -45,7 +45,7 @@ This lecture provides an in-depth discussion on pointers, references, memory all
     * Discusses the characteristics of references, their safety compared to pointers, and practical use cases.
     * Highlights differences between pointers and references.
 
-# Lecture 4: STL Containers
+# Lecture 4: The C++ Standard Library - Containers
 
 # Lecture 5: Functions
 
