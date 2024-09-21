@@ -5,7 +5,7 @@ project(lecture5 VERSION 0.1.0)
 add_compile_options(-Wall)
 
 # Add executable
-add_executable(lecture3 lecture5/src/lecture5.cpp)
+add_executable(lecture5 lecture5/src/lecture5.cpp)
 
 # add_custom_command(TARGET lecture3 POST_BUILD
 #     COMMAND ./lecture3 | c++filt -t
