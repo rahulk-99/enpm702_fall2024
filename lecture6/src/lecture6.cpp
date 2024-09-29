@@ -30,7 +30,47 @@ std::unique_ptr<int> return_by_value() {
     return p;
 }
 
+void manage_raw_ptr(int* p) {
+    if (p) {  // if p is not null
+        std::cout << *p << '\n';
+        delete p;  // Clean up the memory when done
+    }
+}
+
 int main() {
+    //</> 1
+    //=====================
+    // std::unique_ptr<int> u1 = std::make_unique<int>(5);
+    // std::unique_ptr<int> u2{u1};  // error
+
+    //</> 2
+    //=====================
+    // {
+    //     // allocate resource on the heap
+    //     auto u = std::make_unique<int>(10);
+    //     std::cout << *u << '\n';  // 10
+    //     *u = 20;                  // modify the resource
+    //     std::cout << *u << '\n';  // 20
+    //     std::cout << u << '\n';   // error: no operator<< that takes a unique_ptr
+    // }  // u is destroyed here and resource is automatically deleted
+
+    //</> 3-1
+    //=====================
+    // Allocate an int on the heap
+    // auto u = std::make_unique<int>(10);
+    // if (u) {  // if u_ptr is not null
+    //     std::cout << "The value at " << u.get() << " is " << *u << '\n';
+    // }
+
+    //</> 3-2
+    //=====================
+    // // Allocate an int on the heap
+    // auto u = std::make_unique<int>(10);
+    // int* p{u.get()};  // get the stored pointer and store it in a variable
+    // if (p) {          // if p is not null
+    //     std::cout << "The value at " << p << " is " << *p << '\n';
+    // }
+
     //</> 4
     //=====================
     // auto u = std::make_unique<int>(10);
@@ -39,6 +79,25 @@ int main() {
     // assert(u.get() == nullptr);
     // assert(u == nullptr);
     // delete r;  // don't forget to free the memory to avoid a memory leak
+
+    //</> 5
+    //=====================
+    // auto u = std::make_unique<int>(10);
+    // u.release();
+
+    //</> 6
+    //=====================
+    // std::unique_ptr<int> u = std::make_unique<int>(42);
+
+    // // Transfer ownership to a raw pointer using release()
+    // int* r{u.release()};
+
+    // // At this point, u no longer owns the resource, r does
+    // if (!u)
+    //     std::cout << "u is now null after release().\n";
+
+    // // Pass the raw pointer to a function for further management
+    // manage_raw_ptr(r);
 
     //</> 7
     //=====================
@@ -99,7 +158,7 @@ int main() {
 
     //</> 15
     //=====================
-    auto u{return_by_value()};
-    std::cout << *u << '\n';  // 10
-    std::cout << &u << '\n';  // @1
+    // auto u{return_by_value()};
+    // std::cout << *u << '\n';  // 10
+    // std::cout << &u << '\n';  // @1
 }
