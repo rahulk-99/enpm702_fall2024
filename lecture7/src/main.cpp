@@ -1,65 +1,127 @@
 
 
-//</> Example #2
-//=====================
-// #include <iostream>
-// #include "example2.hpp"
-// #include "example2.hpp"
-
-// extern int x;
+// //</> code #1
+// //=====================
+// #include "person.hpp"
 
 // int main() {
-//     std::cout << x << '\n';
+//     university::Person person;
+//     person.get_attribute_offsets();
 // }
 
-//</> Example #7
-//=====================
-// #include <iostream>
-// #include "example7.hpp"
+// //</> code #3
+// //=====================
+// #include "person.hpp"
+// int main() {
+//     university::Person person1;  // default ctor
+
+//     auto person2 = std::make_unique<university::Person>();  // default ctor
+
+//     university::Person person3{// parameterized ctor
+//                                "Tim Berners-Lee",
+//                                "tim@w3.org",
+//                                "617-555-1234",
+//                                8, 6, 1955};
+
+//     auto person4 = std::make_unique<university::Person>(  // parameterized ctor
+//         "Linus Torvalds",
+//         "linus@linux.org",
+//         "503-555-5678",
+//         28, 12, 1969);
+// }
+
+// //</> code #4
+// //=====================
+// #include "code4.hpp"
 
 // int main(){
 //     B b;
 // }
 
-//</> Example #8
-//=====================
+// //</> code #5
+// //=====================
 // #include <iostream>
 
-// #include "example8.hpp"
+// #include "code5.hpp"
 
 // int main() {
 //     int some_value{43};
 //     DemoConstAndRef demo(10, some_value);
 // }
 
-//</> Example #12
-//=====================
-
-// #include <iostream>
-
-// #include "lecture12.hpp"
-// int DemoStaticAttribute::count = 0;  // initialization of class attribute
+// //</> code #7
+// //=====================
+// #include "code7.hpp"
 
 // int main() {
-//     DemoStaticAttribute demo1;                                    // default ctor called
-//     std::cout << "Initial count: " << demo1.get_count() << '\n';  // 1
-//     DemoStaticAttribute demo2;
-//     std::cout << "After creating two objects: " << demo2.get_count() << '\n';  // 2
-//     DemoStaticAttribute demo3;
-//     std::cout << "After creating three objects: " << demo3.get_count() << '\n';  // 3
+//     DemoThis demo_this;
+//     demo_this.initialize(5).print_value();  // chaining function calls
 // }
 
-//</> Example #13
-//=====================
-// #include <iostream>
+// //</> code #8, #9, #10, #11, #12
+// //=====================
+// #include "code8.hpp"
+// #include<iostream>
 
-// #include "lecture13.hpp"
-
-// int DemoStaticMethod::count = 0;  // initialize class attribute
+// int MyClass::count = 0;
 
 // int main() {
-//     std::cout << "Initial count: " << DemoStaticMethod::get_count() << '\n';
+//     std::cout << MyClass::count << '\n';
+// }
 
-//     DemoStaticMethod d1, d2, d3;
-//     std::cout << "After creating 3 objects: " << DemoStaticMethod::get_count() << '\n';
+// //</> code #13
+// //=====================
+// #include "code13.hpp"
+
+// int main() {
+//     int result{MathUtils::add(3, 4)};  // No need to create a MathUtils object
+// }
+
+// //</> code #14
+// //=====================
+// #include "code14.hpp"
+
+// int main() {
+//     auto regular_car = Car::create_regular_car();
+//     regular_car.drive();
+//     auto sports_car = Car::create_sports_car();
+//     sports_car.drive();
+// }
+
+// //</> code #15
+// // //=====================
+// #include "code15.hpp"
+// #include<iostream>
+
+// // Definition of static attribute
+// int Counter::count = 0;
+// int main() {
+//     // Increment the counter
+//     Counter::increment();
+//     Counter::increment();
+
+//     // Print the current count
+//     std::cout << "Current count: " << Counter::get_count() << '\n';
+
+//     // Increment the counter again
+//     Counter::increment();
+
+//     // Print the updated count
+//     std::cout << "Updated count: " << Counter::get_count() << '\n';
+// }
+
+//</> code #16
+// //=====================
+// #include <iostream>
+
+// #include "code16.hpp"
+
+// int main() {
+//     {
+//         std::cout << "--- First object" << '\n';
+//         MyClass* my_class_ptr{new MyClass()};  // Object created!
+//         delete my_class_ptr;                   // Object destroyed!
+//         std::cout << "--- Second object" << '\n';
+//         MyClass my_class;  // Object created!
+//     }  // Object destroyed!
 // }
