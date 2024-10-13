@@ -1,4 +1,5 @@
 @startuml
+title (S): Student Activity
 start
 
 :Student logs in;
