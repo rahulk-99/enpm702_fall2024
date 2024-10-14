@@ -7,86 +7,88 @@ skinparam class {
     BorderColor Black
 }
 
+Package university <<Frame>>{
+
 ' Struct Date
 struct Date {
-    + unsigned short day_
-    + unsigned short month_
-    + unsigned short year_
+    +  day_: unsigned short
+    + month_: unsigned short
+    + year_: unsigned short
     + Date(d: unsigned short, m: unsigned short, y: unsigned short)
-    - bool is_valid() const
-    - bool is_leap_year() const
+    - is_valid() const: bool
+    - is_leap_year() const: bool
 }
 
 ' Classes
 abstract class Person {
-    - std::string name_
-    - std::string email_
-    - std::string phone_number_
-    - Date date_of_birth_
-    - std::weak_ptr<Department> department_
+    - name_: std::string  
+    - email_: std::string
+    - phone_number_: std::string
+    - date_of_birth_: Date
+    - department_: std::weak_ptr<Department> 
     + Person(name: std::string, email: std::string, phone_number: std::string, dob: Date)
     + virtual ~Person()
-    + void log_in()
-    + void log_out()
-    + void set_department(dept: std::shared_ptr<Department>)
-    + std::shared_ptr<Department> get_department() const
-    + std::string get_name() const
-    + Date get_date_of_birth() const
-    + void set_date_of_birth(dob: Date)
-    + void print_date_of_birth() const
+    + log_in(): void
+    + log_out(): void
+    + set_department(dept: std::shared_ptr<Department>): void
+    + get_department() const: std::shared_ptr<Department>
+    + get_name() const: std::string 
+    + get_date_of_birth() const: Date 
+    + set_date_of_birth(dob: Date): void
+    + print_date_of_birth() const: void
 }
 
 class Department {
-    - std::string department_id_
-    - std::string department_name_
-    - std::vector<std::unique_ptr<Course>> courses_
-    - std::vector<std::weak_ptr<Person>> persons_
+    - department_id_: std::string 
+    - department_name_: std::string 
+    - courses_: std::vector<std::unique_ptr<Course>>
+    - persons_: std::vector<std::weak_ptr<Person>>
     + Department(department_id: std::string, department_name: std::string)
     + ~Department()
-    + void add_course(course_id: std::string, course_name: std::string, credits: int)
-    + void remove_course(course_id: std::string)
-    + void add_person(person: std::shared_ptr<Person>)
-    + void remove_person(person_name: std::string)
-    + void list_courses() const
-    + void list_persons() const
-    + std::shared_ptr<Course> get_course_by_id(course_id: std::string) const
+    + add_course(course_id: std::string, course_name: std::string, credits: int): void
+    + remove_course(course_id: std::string): void
+    + add_person(person: std::shared_ptr<Person>): void
+    + remove_person(person_name: std::string): void
+    + list_courses() const: void
+    + list_persons() const: void
+    +  get_course_by_id(course_id: std::string) const: std::shared_ptr<Course>
 }
 
 class Student extends Person {
-    - std::string student_id_
-    - std::vector<std::shared_ptr<Course>> enrolled_courses_
-    - std::unordered_map<std::string, float> grades_
+    - student_id_: std::string 
+    - enrolled_courses_: std::vector<std::shared_ptr<Course>>
+    - grades_: std::unordered_map<std::string, float>
     + Student(name: std::string, email: std::string, phone_number: std::string, dob: Date, student_id: std::string)
-    + void enroll_in_course(course: std::shared_ptr<Course>)
-    + void drop_course(course: std::shared_ptr<Course>)
-    + void view_grades() const
-    + void receive_grade(course_id: std::string, grade: float)
-    + std::string get_student_id() const
+    + enroll_in_course(course: std::shared_ptr<Course>): void
+    + drop_course(course: std::shared_ptr<Course>): void
+    + view_grades() const: void
+    + receive_grade(course_id: std::string, grade: float): void
+    +  get_student_id() const: std::string
 }
 
 class Professor extends Person {
-    - std::string professor_id_
-    - std::vector<std::shared_ptr<Course>> courses_taught_
+    -  professor_id_: std::string
+    -  courses_taught_: std::vector<std::shared_ptr<Course>>
     + Professor(name: std::string, email: std::string, phone_number: std::string, dob: Date, professor_id: std::string)
-    + void assign_to_course(course: std::shared_ptr<Course>)
-    + void assign_grade(student: std::shared_ptr<Student>, course: std::shared_ptr<Course>, grade: float)
-    + std::string get_professor_id() const
+    +  assign_to_course(course: std::shared_ptr<Course>): void
+    +  assign_grade(student: std::shared_ptr<Student>, course: std::shared_ptr<Course>, grade: float): void
+    +  get_professor_id() const: std::string
 }
 
 class Course {
-    - std::string course_id_
-    - std::string course_name_
-    - int credits_
-    - std::vector<std::shared_ptr<Student>> enrolled_students_
-    - std::vector<std::shared_ptr<Professor>> professors_
+    -  course_id_: std::string
+    - course_name_: std::string
+    - credits_: int
+    -  enrolled_students_: std::vector<std::shared_ptr<Student>>
+    -  professors_: std::vector<std::shared_ptr<Professor>>
     + Course(course_id: std::string, course_name: std::string, credits: int)
-    + void add_student(student: std::shared_ptr<Student>)
-    + void remove_student(student: std::shared_ptr<Student>)
-    + void add_professor(professor: std::shared_ptr<Professor>)
-    + void remove_professor(professor: std::shared_ptr<Professor>)
-    + std::string get_course_id() const
-    + std::string get_course_name() const
-    + int get_credits() const
+    + add_student(student: std::shared_ptr<Student>):void 
+    + remove_student(student: std::shared_ptr<Student>):void 
+    + add_professor(professor: std::shared_ptr<Professor>):void 
+    + remove_professor(professor: std::shared_ptr<Professor>):void 
+    +  get_course_id() const: std::string
+    +  get_course_name() const: std::string
+    + get_credits() const: int
 }
 
 ' Inheritance Relationships
@@ -101,6 +103,6 @@ Department "1" o-- "0..*" Person : includes >
 ' Associations
 Student "0..*" -- "1..*" Course : enrolls_in >
 Professor "0..*" -- "0..*" Course : teaches >
-Professor "0..*" -- "0..*" Student : advises >
-
+Professor "0..*" -- "0..*" Student : interacts >
+}
 @enduml
