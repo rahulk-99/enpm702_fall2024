@@ -1,20 +1,20 @@
-//</>--- code #1
-//=====================
+// //</>--- code #1
+// //=====================
 
-#include "code1.hpp"
+// #include "code1.hpp"
 
-int main(){
-    Base base;
+// int main(){
+//     Base base;
 
-    DerivedPublic derived_public;
-    derived_public.print_members();
+//     DerivedPublic derived_public;
+//     derived_public.print_members();
 
-    DerivedPublic derived_private;
-    derived_private.print_members();
+//     DerivedPublic derived_private;
+//     derived_private.print_members();
 
-    DerivedPublic derived_protected;
-    derived_protected.print_members();
-}
+//     DerivedPublic derived_protected;
+//     derived_protected.print_members();
+// }
 
 // //</>--- code #2
 // //=====================
@@ -60,3 +60,15 @@ int main(){
 // int main(){
 //     Derived derived(20.5, 10);
 // }
+
+//</>--- code #7
+//=====================
+#include "person.hpp"
+
+int main(){
+    university::Person john = university::Person(
+        "John Doe", 
+        "john.doe@umd.edu", 
+        "555-555-5555", 
+        12, 1, 1980);
+}

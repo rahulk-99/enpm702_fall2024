@@ -33,7 +33,7 @@ abstract class Person {
     + print_date_of_birth() const: void
 }
 
-class Student extends Person {
+class Student {
     - student_id_: std::string 
     - enrolled_courses_: std::vector<std::shared_ptr<Course>>
     - grades_: std::unordered_map<std::string, float>
@@ -61,5 +61,7 @@ class Professor extends Person {
 
 
 ' Professor "0..*" -- "0..*" Student : interacts >
+
+Student -up-|> Person
 }
 @enduml
