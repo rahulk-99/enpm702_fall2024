@@ -1,66 +1,143 @@
 
 
-// //</> code #1
+int main() {}
+
+// //</>--- code #1
 // //=====================
-// #include "person.hpp"
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
 
 // int main() {
-//     university::Person person;
-//     person.get_attribute_offsets();
+//     university::Date date;
+//     std::cout << sizeof date << '\n';
+
+//     auto u_date = std::make_unique<university::Date>();
+//     std::cout << sizeof u_date << '\n';
+//     std::cout << sizeof *u_date << '\n';
 // }
 
-// //</> code #3
+// //</>--- code #2
 // //=====================
-// #include "person.hpp"
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
 // int main() {
-//     university::Person person1;  // default ctor
-
-//     auto person2 = std::make_unique<university::Person>();  // default ctor
-
-//     university::Person person3{// parameterized ctor
-//                                "Tim Berners-Lee",
-//                                "tim@w3.org",
-//                                "617-555-1234",
-//                                8, 6, 1955};
-
-//     auto person4 = std::make_unique<university::Person>(  // parameterized ctor
-//         "Linus Torvalds",
-//         "linus@linux.org",
-//         "503-555-5678",
-//         28, 12, 1969);
+//     university::Date date;
+//     date.get_attribute_offsets();
 // }
 
-// //</> code #4
+//</>--- code #3
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     university::Date date;
+//     date.print_date();
+//     std::cout << date.day_ << '\n';
+
+//     auto u_date = std::make_unique<university::Date>();
+//     (*u_date).print_date();
+//     u_date->print_date();
+//     std::cout << (*u_date).day_ << '\n';
+//     std::cout << u_date->day_ << '\n';
+// }
+
+//</>--- code #4
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     // const university::Date date1;            // date1 is const
+//     // std::cout << date1.get_day() << '\n';    // OK: get_day() is const
+//     // std::cout << date1.get_month() << '\n';  // compilation error
+
+//     university::Date date2;                  // date2 is non-const
+//     std::cout << date2.get_day() << '\n';    // OK: get_day() is const
+//     std::cout << date2.get_month() << '\n';  // OK: get_month() is non-const
+// }
+
+//</>--- code #5
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     university::Date date;
+//     std::cout << date.get_day() << '\n';  // 15
+
+//     auto u_date = std::make_unique<university::Date>();
+//     std::cout << u_date->get_day() << '\n';  // 15
+// }
+
+//</>--- code #6
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     university::Date date1;  // default ctor
+
+//     auto u_date2 = std::make_unique<university::Date>();  // default ctor
+
+//     // parameterized ctor
+//     university::Date date3{1, 2, 1980};
+
+//     // parameterized ctor
+//     auto u_date4 = std::make_unique<university::Date>(1, 2, 1980);
+// }
+
+
+// //</> code #7
 // //=====================
-// #include "code4.hpp"
+// #include "code7.hpp"
 
 // int main(){
 //     B b;
 // }
 
-// //</> code #5
+// //</> code #8
 // //=====================
 // #include <iostream>
 
-// #include "code5.hpp"
+// #include "code8.hpp"
 
 // int main() {
 //     int some_value{43};
 //     DemoConstAndRef demo(10, some_value);
 // }
 
-// //</> code #7
+// //</> code #9
 // //=====================
-// #include "code7.hpp"
+// #include "code9.hpp"
 
 // int main() {
 //     DemoThis demo_this;
 //     demo_this.initialize(5).print_value();  // chaining function calls
 // }
 
-// //</> code #8, #9, #10, #11, #12
+// //</> code #10, #11, #12, #13, #14
 // //=====================
-// #include "code8.hpp"
+// #include "code10.hpp"
 // #include<iostream>
 
 // int MyClass::count = 0;
@@ -69,17 +146,17 @@
 //     std::cout << MyClass::count << '\n';
 // }
 
-// //</> code #13
+// //</> code #15
 // //=====================
-// #include "code13.hpp"
+// #include "code15.hpp"
 
 // int main() {
 //     int result{MathUtils::add(3, 4)};  // No need to create a MathUtils object
 // }
 
-// //</> code #14
+// //</> code #16
 // //=====================
-// #include "code14.hpp"
+// #include "code16.hpp"
 
 // int main() {
 //     auto regular_car = Car::create_regular_car();
@@ -88,9 +165,9 @@
 //     sports_car.drive();
 // }
 
-// //</> code #15
-// // //=====================
-// #include "code15.hpp"
+//</> code #17
+// //=====================
+// #include "code17.hpp"
 // #include<iostream>
 
 // // Definition of static attribute
@@ -110,11 +187,11 @@
 //     std::cout << "Updated count: " << Counter::get_count() << '\n';
 // }
 
-//</> code #16
+//</> code #18
 // //=====================
 // #include <iostream>
 
-// #include "code16.hpp"
+// #include "code18.hpp"
 
 // int main() {
 //     {

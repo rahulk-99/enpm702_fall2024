@@ -1,6 +1,7 @@
-@startuml
+@startuml "Student Activity"
 title (S): Student Activity
 start
+floating note left: <b>File</b>: student_activity_diagram.wsd
 
 :Student logs in;
 note right

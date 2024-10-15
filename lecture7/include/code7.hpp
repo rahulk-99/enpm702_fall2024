@@ -1,20 +1,21 @@
 #include <iostream>
 
-class DemoThis {
-   private:
-    int number;
-
+class A {
    public:
-    // using 'this' to differentiate attributes from parameters.
-    void set_number(int number) { this->number = number; }
-    int get_number() const { return this->number; }
+    A() { std::cout << "default ctor A\n"; }
+    A(int x) : v_{x} { std::cout << "param ctor A\n"; }
 
-    DemoThis& initialize(int val) {
-        this->number = val;
-        return *this;
+   private:
+    int v_;
+};  // class A
+
+class B {
+   public:
+    B() {
+        std::cout << "default ctor B\n";
+        a_ = A(2);  // calls param ctor for A
     }
 
-    void print_value() {
-        std::cout << "Number: " << this->number << '\n';
-    }
-};
+   private:
+    A a_;  // calls default ctor for A
+};  // class B

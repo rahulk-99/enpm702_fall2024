@@ -1,6 +1,11 @@
-@startuml
+@startuml "University Management System"
 title University Management System
-start
+
+
+
+start 
+floating note left: <b>File</b>: university_activity_diagram.wsd
+
 
 :Create department;
 note left
@@ -41,4 +46,6 @@ endif
 repeat while (More persons?) is (yes)
 
 stop
+
+
 @enduml
