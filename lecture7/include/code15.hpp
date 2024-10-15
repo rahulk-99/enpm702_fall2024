@@ -1,8 +1,8 @@
-class Counter {
-   private:
-    static int count;
-
+class MathUtils {
    public:
-    static void increment() { count++; }
-    static int get_count() { return count; }
+    static int add(int a, int b) {
+        return a + b;
+    }
 };
+
+int result{MathUtils::add(3, 4)};  // No need to create a MathUtils object

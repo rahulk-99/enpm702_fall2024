@@ -14,4 +14,8 @@ class ClassName {
     + method2(param: Type): ReturnType
 }
 
+note as N1
+<b>File</b>: class.wsd
+end note
+
 @enduml

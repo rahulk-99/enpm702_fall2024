@@ -1,4 +1,12 @@
-class MyClass {
+class DemoConstAndRef {
    public:
-    static int count;  // Declaration of static attribute
-};
+    DemoConstAndRef(int constant, int reference): {
+        const_ = constant;  // error
+        ref_ = reference;   // error
+    }
+
+   private:
+    const int const_;
+    int &ref_;
+
+};  // class DemoConstAndRef
