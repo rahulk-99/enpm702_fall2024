@@ -1,5 +1,9 @@
 
 
+
+// //</>--- code #1
+// //=====================
+
 // #include <iostream>
 // #include <stdexcept>
 
@@ -46,10 +50,32 @@
 //     }
 // }
 
-// //</>--- code #3
-// //=====================
+//</>--- code #3
+//=====================
 
-// #include "code3.hpp"
+// #include "date.hpp"
+// #include "engine.hpp"
+// #include "driver.hpp"
+// #include "vehicle.hpp"
+
+// int main() {
+//     // driving::Date birthdate{driving::Date(29, 2, 2024)};
+
+//     // auto engine_ptr = std::make_unique<driving::Engine>(670);
+//     // engine_ptr->start();
+
+//     auto driver_ptr = std::make_shared<driving::Driver>("George", driving::Date(1, 1, 1988));
+//     // driver_ptr->drive_vehicle();
+//     // driver_ptr->get_birthdate().print_date();
+
+//     auto vehicle_ptr = std::make_shared<driving::Vehicle>("Tesla Model S", "Red", 670);
+//     vehicle_ptr->set_driver(driver_ptr);
+//     vehicle_ptr->drive();
+// }
+
+// //</>--- code #4
+// //=====================
+// #include "code4.hpp"
 
 // int main(){
 //     Base base;
@@ -64,7 +90,7 @@
 //     derived_protected.print_members();
 // }
 
-// //</>--- code #2
+// //</>--- code #5
 // //=====================
 
 // #include "code2.hpp"
@@ -73,50 +99,38 @@
 //     Base base(10);
 // }
 
-// //</>--- code #3
+// //</>--- code #6
 // //=====================
 
-// #include "code3.hpp"
+// #include "code6.hpp"
 
 // int main(){
 //     Derived derived(20.5);
 // }
 
-// //</>--- code #4
+// //</>--- code #7
 // //=====================
 
-// #include "code4.hpp"
+// #include "code7.hpp"
 
 // int main(){
 //     Derived derived(20.5, 10);
 // }
 
-// //</>--- code #5
+// //</>--- code #8
 // //=====================
 
-// #include "code5.hpp"
+// #include "code8.hpp"
 
 // int main(){
 //     Derived derived(20.5, 10);
 // }
 
-//</>--- code #6
+//</>--- code #9
 //=====================
 
-// #include "code6.hpp"
+// #include "code9.hpp"
 
 // int main(){
 //     Derived derived(20.5, 10);
-// }
-
-//</>--- code #7
-//=====================
-// #include "person.hpp"
-
-// int main(){
-//     university::Person john = university::Person(
-//         "John Doe",
-//         "john.doe@umd.edu",
-//         "555-555-5555",
-//         12, 1, 1980);
 // }

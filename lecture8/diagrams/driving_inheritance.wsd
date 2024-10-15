@@ -1,0 +1,58 @@
+@startuml "Driving Scenario"
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+Package driving <<Frame>>{
+
+class ElectricVehicle {
+    -battery_capacity_: double
+    +ElectricVehicle(model: std::string& <<const>>, color: std::string& <<const>>, horsepower: unsigned int, battery_capacity: double)
+    +charge_battery(): void
+    +drive(): void <<override>>
+}
+
+class GasolineVehicle {
+    -fuel_capacity_: double
+    +GasolineVehicle(model: std::string& <<const>>, color: std::string& <<const>>, horsepower: unsigned int, fuel_capacity: double)
+    +refuel(): void
+    +drive(): void <<override>>
+}
+
+class Vehicle {
+    -model_: std::string
+    -color_: std::string
+    -engine_: std::unique_ptr<Engine>
+    -driver_: std::shared_ptr<Driver>
+    +Vehicle(model: std::string& <<const>>, color: std::string& <<const>>, horsepower: unsigned int)
+    +drive(): void <<const>>
+    +set_driver(driver: std::shared_ptr<Driver>): void
+}
+
+class Engine {
+
+}
+
+class Driver {
+
+}
+
+class Date {
+
+}
+
+
+
+ElectricVehicle --|> Vehicle: <<public>>
+GasolineVehicle --|> Vehicle: <<public>>
+
+
+Vehicle *-- "1" Engine : has <<unique>> >
+Vehicle o-- "1" Driver : is_driven_by <<shared>> >
+Driver *-- "1" Date : has_birthdate <<value>> >
+}
+@enduml
