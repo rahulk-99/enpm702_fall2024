@@ -1,9 +1,7 @@
 
 
-int main() {}
-
-// //</>--- code #1
-// //=====================
+//</>--- code #1
+//=====================
 
 // #include <iostream>
 // #include <memory>
@@ -13,6 +11,7 @@ int main() {}
 // int main() {
 //     university::Date date;
 //     std::cout << sizeof date << '\n';
+//     date.get_attribute_offsets();
 
 //     auto u_date = std::make_unique<university::Date>();
 //     std::cout << sizeof u_date << '\n';
@@ -43,13 +42,6 @@ int main() {}
 // int main() {
 //     university::Date date;
 //     date.print_date();
-//     std::cout << date.day_ << '\n';
-
-//     auto u_date = std::make_unique<university::Date>();
-//     (*u_date).print_date();
-//     u_date->print_date();
-//     std::cout << (*u_date).day_ << '\n';
-//     std::cout << u_date->day_ << '\n';
 // }
 
 //</>--- code #4
@@ -89,26 +81,21 @@ int main() {}
 //</>--- code #6
 //=====================
 
-// #include <iostream>
-// #include <memory>
+#include <iostream>
+#include <memory>
 
-// #include "date.hpp"
+#include "date.hpp"
 
-// int main() {
-//     university::Date date1;  // default ctor
+int main() {
+    // parameterized ctor
+    university::Date date{22, 2, 2023};
+    date.print_date();
 
-//     auto u_date2 = std::make_unique<university::Date>();  // default ctor
+    date.get_test();
+}
 
-//     // parameterized ctor
-//     university::Date date3{1, 2, 1980};
-
-//     // parameterized ctor
-//     auto u_date4 = std::make_unique<university::Date>(1, 2, 1980);
-// }
-
-
-// //</> code #7
-// //=====================
+//</> code #7
+//=====================
 // #include "code7.hpp"
 
 // int main(){
