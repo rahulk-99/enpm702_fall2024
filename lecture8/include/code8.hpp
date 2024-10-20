@@ -4,7 +4,7 @@
 class Base {
    public:
     Base(int base_value = 50) : base_{base_value} {
-        std::cout << "----- Base ctor" << '\n';
+        std::cout << "----- Base ctor"<< '\n';
         std::cout << "base_: " << base_ << '\n';
     }
 
@@ -14,10 +14,8 @@ class Base {
 
 class Derived : public Base {
    public:
-    Derived(double derived_value, int base_value)
-        : derived_{derived_value} {
-        base_ = base_value;
-
+    Derived(double value)
+        : derived_{value} {
         std::cout << "----- Derived ctor" << '\n';
         std::cout << "base_: " << base_ << '\n';
         std::cout << "derived_: " << derived_ << '\n';
