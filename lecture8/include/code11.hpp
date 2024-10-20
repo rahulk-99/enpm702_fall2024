@@ -15,7 +15,8 @@ class Base {
 class Derived : public Base {
    public:
     Derived(double derived_value, int base_value)
-        : derived_{derived_value}, base_{base_value} {
+        : Base(base_value), derived_{derived_value} {
+
         std::cout << "----- Derived ctor" << '\n';
         std::cout << "base_: " << base_ << '\n';
         std::cout << "derived_: " << derived_ << '\n';

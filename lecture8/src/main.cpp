@@ -1,6 +1,5 @@
 
 
-
 // //</>--- code #1
 // //=====================
 
@@ -50,32 +49,92 @@
 //     }
 // }
 
-//</>--- code #3
-//=====================
+// //</>--- code #3
+// //=====================
+// #include <iostream>
 
-// #include "date.hpp"
-// #include "engine.hpp"
-// #include "driver.hpp"
-// #include "vehicle.hpp"
+// class Temperature {
+//    public:
+//     // Constructor taking one argument for the temperature in Celsius
+//     Temperature(double celsius)
+//         : celsius_{celsius} {
+//     }
 
-// int main() {
-//     // driving::Date birthdate{driving::Date(29, 2, 2024)};
+//     double get_celsius() const { return celsius_; }
 
-//     // auto engine_ptr = std::make_unique<driving::Engine>(670);
-//     // engine_ptr->start();
+//    private:
+//     double celsius_;
+// };
 
-//     auto driver_ptr = std::make_shared<driving::Driver>("George", driving::Date(1, 1, 1988));
-//     // driver_ptr->drive_vehicle();
-//     // driver_ptr->get_birthdate().print_date();
-
-//     auto vehicle_ptr = std::make_shared<driving::Vehicle>("Tesla Model S", "Red", 670);
-//     vehicle_ptr->set_driver(driver_ptr);
-//     vehicle_ptr->drive();
+// void test(Temperature celcius) {
+//     std::cout << celcius.get_celsius() << '\n';
 // }
 
-// //</>--- code #4
+// int main() {
+//     test(36.5);
+// }
+
+//</>--- code #4
+//=====================
+// #include <iostream>
+
+// class Unit {
+//    public:
+//     Unit(double m, double kg = 0.0, double s = 0.0)
+//         : meter_{m}, kg_{kg}, second_{s} {
+//     }
+
+//     double get_meter() const {
+//         return meter_;
+//     }
+
+//    private:
+//     double meter_;
+//     double kg_;
+//     double second_;
+// };
+
+// void test(Unit unit) {
+//     std::cout << unit.get_meter() << '\n';
+// }
+
+// int main() {
+//     test(3.5);
+// }
+
+//</>--- code #5
+//=====================
+
+#include <memory>
+
+#include "driving/date.hpp"
+#include "driving/driver.hpp"
+#include "driving/engine.hpp"
+#include "driving/vehicle.hpp"
+
+int main() {
+    // driving::Date birthdate{driving::Date(232, 2, 2024)};
+
+    // auto engine_ptr = std::make_unique<driving::Engine>(670);
+    // engine_ptr->start();
+
+    auto driver_ptr = std::make_shared<driving::Driver>("George", driving::Date(1, 1, 1988));
+    // driver_ptr->print_date_of_birth();
+    // driver_ptr->drive_vehicle();
+    // driver_ptr->get_birthdate().print_date();
+
+    // auto vehicle_ptr = std::make_shared<driving::Vehicle>("Tesla Model S", "Red", 670);
+    // vehicle_ptr->set_driver(driver_ptr);
+    // vehicle_ptr->drive(20.76);
+
+    auto ev_ptr = std::make_shared<driving::ElectricVehicle>("Tesla Model S", "Red", 670, 100, 0.2);
+    ev_ptr->set_driver(driver_ptr);
+    ev_ptr->drive(30000);
+}
+
+// //</>--- code #6
 // //=====================
-// #include "code4.hpp"
+// #include "code6.hpp"
 
 // int main(){
 //     Base base;
@@ -90,31 +149,13 @@
 //     derived_protected.print_members();
 // }
 
-// //</>--- code #5
-// //=====================
-
-// #include "code2.hpp"
-
-// int main(){
-//     Base base(10);
-// }
-
-// //</>--- code #6
-// //=====================
-
-// #include "code6.hpp"
-
-// int main(){
-//     Derived derived(20.5);
-// }
-
 // //</>--- code #7
 // //=====================
 
 // #include "code7.hpp"
 
 // int main(){
-//     Derived derived(20.5, 10);
+//     Base base(10);
 // }
 
 // //</>--- code #8
@@ -123,14 +164,34 @@
 // #include "code8.hpp"
 
 // int main(){
-//     Derived derived(20.5, 10);
+//     Derived derived(20.5);
 // }
 
-//</>--- code #9
-//=====================
+// //</>--- code #9
+// //=====================
 
 // #include "code9.hpp"
 
 // int main(){
 //     Derived derived(20.5, 10);
 // }
+
+// //</>--- code #10
+// //=====================
+
+// #include "code10.hpp"
+
+// int main(){
+//     Derived derived(20.5, 10);
+// }
+
+//</>--- code #11
+//=====================
+
+// #include "code11.hpp"
+
+// int main(){
+//     Derived derived(20.5, 10);
+// }
+
+
