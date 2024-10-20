@@ -14,24 +14,25 @@ class ElectricVehicle {
     -consumption_rate_: double
     +ElectricVehicle(model: std::string& <<const>>,\n\tcolor: std::string& <<const>>,\n\thorsepower: unsigned int,\n\tbattery_capacity: double)
     +charge_battery(): void
-    +drive(double distance)): void <<override>>
+    +drive(distance: double): void <<virtual>> <<override>>
 }
 
 class GasolineVehicle {
-    -fuel_capacity_: double
-    +GasolineVehicle(model: std::string& <<const>>,\n\tcolor: std::string& <<const>>,\n\thorsepower: unsigned int,\n\tfuel_capacity: double)
+    -tank_capacity_: double
+    -fuel_consumption_rate_: double
+    +GasolineVehicle(model: std::string& <<const>>,\n\tcolor: std::string& <<const>>,\n\thorsepower: unsigned int,\n\ttank_capacity: double)
     +refuel(): void
-    +drive(double distance)): void: void <<override>>
+    +drive(distance: double): void <<virtual>> <<override>>
 }
 
 class Vehicle {
     -model_: std::string
     -color_: std::string
-    -engine_: std::unique_ptr<Engine>
-    -driver_: std::shared_ptr<Driver>
+    -engine_: std::unique_ptr<driving::Engine>
+    -driver_: std::shared_ptr<driving::Driver>
     +Vehicle(model: std::string& <<const>>,\n\tcolor: std::string& <<const>>,\n\thorsepower: unsigned int)
-    +drive(double distance)): void
-    +set_driver(driver: std::shared_ptr<Driver>): void
+    +drive(distance: double): void <<virtual>> 
+    +set_driver(driver: std::shared_ptr<driving::Driver>): void
 }
 
 ' class Engine {

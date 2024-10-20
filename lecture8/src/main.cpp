@@ -113,11 +113,14 @@
 #include "driving/vehicle.hpp"
 
 int main() {
+    // -- testing date of birth
     // driving::Date birthdate{driving::Date(232, 2, 2024)};
 
+    // -- testing Engine object
     // auto engine_ptr = std::make_unique<driving::Engine>(670);
     // engine_ptr->start();
 
+    // -- testing driver object
     auto driver_ptr = std::make_shared<driving::Driver>("George", driving::Date(1, 1, 1988));
     // driver_ptr->print_date_of_birth();
     // driver_ptr->drive_vehicle();
@@ -127,9 +130,11 @@ int main() {
     // vehicle_ptr->set_driver(driver_ptr);
     // vehicle_ptr->drive(20.76);
 
-    auto ev_ptr = std::make_shared<driving::ElectricVehicle>("Tesla Model S", "Red", 670, 100, 0.2);
+    auto ev_ptr = std::make_shared<driving::ElectricVehicle>("Tesla Model S", "Red", 670, 20, 0.2);
     ev_ptr->set_driver(driver_ptr);
-    ev_ptr->drive(30000);
+    ev_ptr->full_recharge();
+    // ev_ptr->display_battery_level();
+    // ev_ptr->drive(30000);
 }
 
 // //</>--- code #6
