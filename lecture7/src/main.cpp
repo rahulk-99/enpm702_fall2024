@@ -81,18 +81,18 @@
 //</>--- code #6
 //=====================
 
-#include <iostream>
-#include <memory>
+// #include <iostream>
+// #include <memory>
 
-#include "date.hpp"
+// #include "date.hpp"
 
-int main() {
-    // parameterized ctor
-    university::Date date{22, 2, 2023};
-    date.print_date();
+// int main() {
+//     // parameterized ctor
+//     university::Date date{22, 2, 2023};
+//     date.print_date();
 
-    date.get_test();
-}
+//     date.get_test();
+// }
 
 //</> code #7
 //=====================
@@ -188,4 +188,31 @@ int main() {
 //         std::cout << "--- Second object" << '\n';
 //         MyClass my_class;  // Object created!
 //     }  // Object destroyed!
+// }
+
+//</>--- code #19
+//=====================
+// #include <iostream>
+// #include "code19.hpp"
+
+// void test(Temperature celcius) {
+//     std::cout << celcius.get_celsius() << '\n';
+// }
+
+// int main() {
+//     test(36.5);
+// }
+
+//</>--- code #20
+//=====================
+// #include <iostream>
+// #include "code20.hpp"
+
+
+// void test(Unit unit) {
+//     unit.print_units();
+// }
+
+// int main() {
+//     test(3.5);
 // }
