@@ -61,7 +61,6 @@ class Date {
      *
      */
     void print_date() const;
-    void get_attribute_offsets() const;
     ushort get_day() const { return day_; }
     ushort get_month() const { return month_; }
 

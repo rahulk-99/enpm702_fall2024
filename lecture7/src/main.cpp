@@ -1,9 +1,7 @@
 
 
-int main() {}
-
-// //</>--- code #1
-// //=====================
+//</>--- code #1
+//=====================
 
 // #include <iostream>
 // #include <memory>
@@ -13,6 +11,7 @@ int main() {}
 // int main() {
 //     university::Date date;
 //     std::cout << sizeof date << '\n';
+//     date.get_attribute_offsets();
 
 //     auto u_date = std::make_unique<university::Date>();
 //     std::cout << sizeof u_date << '\n';
@@ -43,13 +42,6 @@ int main() {}
 // int main() {
 //     university::Date date;
 //     date.print_date();
-//     std::cout << date.day_ << '\n';
-
-//     auto u_date = std::make_unique<university::Date>();
-//     (*u_date).print_date();
-//     u_date->print_date();
-//     std::cout << (*u_date).day_ << '\n';
-//     std::cout << u_date->day_ << '\n';
 // }
 
 //</>--- code #4
@@ -95,20 +87,15 @@ int main() {}
 // #include "date.hpp"
 
 // int main() {
-//     university::Date date1;  // default ctor
-
-//     auto u_date2 = std::make_unique<university::Date>();  // default ctor
-
 //     // parameterized ctor
-//     university::Date date3{1, 2, 1980};
+//     university::Date date{22, 2, 2023};
+//     date.print_date();
 
-//     // parameterized ctor
-//     auto u_date4 = std::make_unique<university::Date>(1, 2, 1980);
+//     date.get_test();
 // }
 
-
-// //</> code #7
-// //=====================
+//</> code #7
+//=====================
 // #include "code7.hpp"
 
 // int main(){
@@ -201,4 +188,31 @@ int main() {}
 //         std::cout << "--- Second object" << '\n';
 //         MyClass my_class;  // Object created!
 //     }  // Object destroyed!
+// }
+
+//</>--- code #19
+//=====================
+// #include <iostream>
+// #include "code19.hpp"
+
+// void test(Temperature celcius) {
+//     std::cout << celcius.get_celsius() << '\n';
+// }
+
+// int main() {
+//     test(36.5);
+// }
+
+//</>--- code #20
+//=====================
+// #include <iostream>
+// #include "code20.hpp"
+
+
+// void test(Unit unit) {
+//     unit.print_units();
+// }
+
+// int main() {
+//     test(3.5);
 // }
