@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.20.0)
-project(lecture7 VERSION 0.1.0)
+project(lecture8 VERSION 0.1.0)
 
 
 # Compilation flags
 add_compile_options(-Wall)
 
-include_directories(lecture7/include)
+include_directories(lecture8/include)
 # Add executable
-add_executable(lecture7 
-    lecture7/src/main.cpp)
+add_executable(lecture8 
+    lecture8/src/main.cpp)
 
 # add_custom_command(TARGET lecture8 POST_BUILD
 #     COMMAND valgrind --show-error-list=yes --leak-check=full --show-leak-kinds=all --track-origins=yes ./lecture8
@@ -26,5 +26,5 @@ add_executable(lecture7
 
 
 # Set C++ standard to C++17
-set_property(TARGET lecture7 PROPERTY CXX_STANDARD 17)
+set_property(TARGET lecture8 PROPERTY CXX_STANDARD 17)
 

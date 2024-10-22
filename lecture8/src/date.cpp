@@ -39,9 +39,3 @@ bool driving::Date::is_valid_date(ushort day, ushort month, ushort year) const {
 
     return true;
 }
-
-void driving::Date::get_attribute_offsets() const {
-    std::cout << "Offset of 'day_': " << offsetof(Date, day_) << '\n';
-    std::cout << "Offset of 'month_': " << offsetof(Date, month_) << '\n';
-    std::cout << "Offset of 'year_': " << offsetof(Date, year_) << '\n';
-}
