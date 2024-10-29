@@ -148,15 +148,15 @@
 
 // definitions
 
-void test_drive(std::shared_ptr<driving::Vehicle> vehicle, double distance) {
-    vehicle->drive(distance);
-}
-
-// void test_drive_ev(std::shared_ptr<driving::ElectricVehicle> vehicle, double distance) {
+// void test_drive(std::shared_ptr<driving::Vehicle> vehicle, double distance) {
 //     vehicle->drive(distance);
 // }
 
-// void test_drive_gas(std::shared_ptr<driving::GasolineVehicle> vehicle, double distance) {
+// void test_drive(std::shared_ptr<driving::ElectricVehicle> vehicle, double distance) {
+//     vehicle->drive(distance);
+// }
+
+// void test_drive(std::shared_ptr<driving::GasolineVehicle> vehicle, double distance) {
 //     vehicle->drive(distance);
 // }
 
@@ -184,15 +184,15 @@ int main() {
     // ford_mustang->drive(200);
     // ford_mustang->refuel();
 
-    // ---------------------------------
-    // -- Testing runtime polymorphism
-    // ---------------------------------
+    // // ---------------------------------
+    // // -- Testing runtime polymorphism
+    // // ---------------------------------
 
     // // Type alias
     // using Gas = driving::GasolineVehicle;
     // using Electric = driving::ElectricVehicle;
 
-    // // First vehicle
+    // // // First vehicle
     // auto lewis = std::make_shared<driving::Driver>("Lewis Hamilton", driving::Date(7, 1, 1985));
     // auto model_s = std::make_shared<Electric>("Tesla Model S", "Red", 670, 20, 0.2);
     // model_s->set_driver(lewis);
@@ -202,18 +202,15 @@ int main() {
     // auto mustang = std::make_shared<Gas>("Ford Mustang", "Black", 300, 60.0, 0.12);
     // mustang->set_driver(alain);
 
-    // Which drive() is used?
-    // model_s->drive(2000);
-    // std::cout << "================" << '\n';
-    // mustang->drive(2000);
+    // // Which drive() is used?
+    // // model_s->drive(2000);
+    // // std::cout << "================" << '\n';
+    // // mustang->drive(2000);
 
-    // All vehicle types
+    // // All vehicle types
     // test_drive(model_s, 2000);
-    // test_drive(mustang, 3000);
-
-    // test_drive_ev(model_s, 2000);
     // std::cout << "================" << '\n';
-    // test_drive_gas(mustang, 3000);
+    // test_drive(mustang, 3000);
 }
 
 //</>--- code #12
