@@ -8,7 +8,19 @@
 // Vehicle
 // ===========================================
 
-/* write code for drive() and set_driver()*/
+void driving::Vehicle::drive(double distance) {
+    if(driver_){
+        if (engine_) {
+            engine_->start();
+        }
+        driver_->drive_vehicle(distance);
+    } else {
+        std::cout << "There is no driver, the vehicle cannot move" << '\n';
+    }
+}
+void driving::Vehicle::set_driver(std::shared_ptr<driving::Driver> driver) {
+    driver_ = driver;
+}
 
 // // ===========================================
 // // ElectricVehicle
@@ -79,7 +91,7 @@
 //     std::cout.flush();
 // }
 
-// // ===========================================
+// // // ===========================================
 // // void driving::ElectricVehicle::drive(double distance) {
 // //     Vehicle::drive(distance);
 // //     // Assume the vehicle consumes a fixed amount of battery per mile
@@ -111,7 +123,7 @@
 //     std::cout << "Tank level: " << fuel_level_ << " gallons\n";
 // }
 
-// // ===========================================
+// // // ===========================================
 // // void driving::GasolineVehicle::drive(double distance) {
 // //     Vehicle::drive(distance);
 // //     double fuel_needed = distance * fuel_consumption_rate_;
