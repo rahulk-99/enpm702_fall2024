@@ -1,5 +1,15 @@
 
 
+// class A {
+// };
+
+// class B {
+// };
+
+// int main() {
+//     B b(3, 4);
+// }
+
 // //</>--- code #1
 // //=====================
 
@@ -14,6 +24,8 @@
 // }
 
 // int main() {
+//     // int result = divide(10, 0);  // This will throw an exception
+//     // std::cout << "Result: " << result << '\n';
 //     try {
 //         int result = divide(10, 0);  // This will throw an exception
 //         std::cout << "Result: " << result << '\n';
@@ -52,7 +64,38 @@
 //</>--- code #3
 //=====================
 
-// int main(){}
+// #include <iostream>
+// #include <memory>
+
+// #include "driving/date.hpp"
+// #include "driving/driver.hpp"
+// #include "driving/engine.hpp"
+// #include "driving/vehicle.hpp"
+
+// int main() {
+//     //-- test Date class
+//     // try {
+//     //     driving::Date birthdate{driving::Date(28, 2, 2025)};
+//     // } catch (const std::invalid_argument& e) {
+//     //     std::cerr << e.what() << '\n';
+//     // }
+
+//     //-- test Engine class
+//     // driving::Engine engine(260);
+//     // engine.start();
+
+//     //-- test Driver class
+//     // driving::Driver alain("Alain Prost", driving::Date{2, 2, 1985});
+//     // alain.drive_vehicle();
+//     // std::cout << alain.get_name() << '\n';
+
+//     auto hamilton = std::make_shared<driving::Driver>("Lewis Hamilton", driving::Date{2, 2, 1985});
+
+//     auto tesla = std::make_shared<driving::Vehicle>("Model S", "Red", 260);
+//     hamilton->set_vehicle(tesla);
+//     // tesla.set_driver(hamilton);
+
+// }
 
 //</>--- code #4
 //=====================
@@ -71,13 +114,13 @@
 //     derived_protected.print_members();
 // }
 
-// //</>--- code #5
-// //=====================
+//</>--- code #5
+//=====================
 
 // #include "code5.hpp"
 
 // int main(){
-//     Base base(10);
+//     Base base;
 // }
 
 //</>--- code #6, #7, #8, #9
@@ -86,131 +129,92 @@
 // #include "code6_7_8_9.hpp"
 
 // int main(){
-//     Derived derived(20.5);
+//     Derived derived(20.5, 10);
 // }
 
 //</>--- code #10, #11
 //=====================
 
-// #include <memory>
-// #include <vector>
+#include <iostream>
+#include <memory>
+#include <stdexcept>
+#include <vector>
 
-// #include "driving/date.hpp"
-// #include "driving/driver.hpp"
-// #include "driving/engine.hpp"
-// #include "driving/vehicle.hpp"
+#include "driving/date.hpp"
+#include "driving/driver.hpp"
+#include "driving/engine.hpp"
+#include "driving/vehicle.hpp"
 
-// // prototypes
-// void drive_vehicles(const std::vector<std::shared_ptr<driving::Vehicle>> &vehicles, double distance);
 
-// void drive_electric_vehicles(const std::vector<std::shared_ptr<driving::ElectricVehicle>> &vehicles, double distance);
+// definitions
 
-// void drive_gas_vehicles(const std::vector<std::shared_ptr<driving::Vehicle>> &vehicles, double distance);
+void test_drive(std::shared_ptr<driving::Vehicle> vehicle, double distance) {
+    vehicle->drive(distance);
+}
 
-// // definitions
-// void drive_vehicles(const std::vector<std::shared_ptr<driving::Vehicle>> &vehicles, double distance) {
-//     for (auto &vehicle : vehicles) {
-//         vehicle->drive(distance);
-//     }
+// void test_drive_ev(std::shared_ptr<driving::ElectricVehicle> vehicle, double distance) {
+//     vehicle->drive(distance);
 // }
 
-// void drive_electric_vehicles(const std::vector<std::shared_ptr<driving::ElectricVehicle>> &vehicles, double distance) {
-//     for (auto &vehicle : vehicles) {
-//         vehicle->drive(distance);
-//     }
+// void test_drive_gas(std::shared_ptr<driving::GasolineVehicle> vehicle, double distance) {
+//     vehicle->drive(distance);
 // }
 
-// void drive_gas_vehicles(const std::vector<std::shared_ptr<driving::GasolineVehicle>> &vehicles, double distance) {
-//     for (auto &vehicle : vehicles) {
-//         vehicle->drive(distance);
-//     }
-// }
+int main() {
+    // // ---------------------------------
+    // // -- Testing ElectricVehicle object
+    // // ---------------------------------
+    // // driver
+    // auto lewis_hamilton = std::make_shared<driving::Driver>("Lewis Hamilton", driving::Date(7, 1, 1985));
+    // // vehicle
+    // auto tesla_model_s = std::make_shared<driving::ElectricVehicle>("Tesla Model S", "Red", 670, 20, 0.2);
+    // tesla_model_s->set_driver(lewis_hamilton);
+    // tesla_model_s->full_recharge();
+    // tesla_model_s->display_battery_level();
+    // tesla_model_s->drive(30000);
 
-// int main() {
-// // ---------------------------------
-// // -- Testing Date object
-// // ---------------------------------
-// driving::Date birthdate{driving::Date(232, 2, 2024)};
+    // // ---------------------------------
+    // // -- Testing GasolineVehicle object
+    // // ---------------------------------
+    // // driver
+    // auto alain_prost = std::make_shared<driving::Driver>("Alain Prost", driving::Date(24, 2, 1955));
+    // // vehicle
+    // auto ford_mustang = std::make_shared<driving::GasolineVehicle>("Ford Mustang", "Black", 300, 60.0, 0.12);
+    // ford_mustang->set_driver(alain_prost);
+    // ford_mustang->drive(200);
+    // ford_mustang->refuel();
 
-// // ---------------------------------
-// // -- Testing Engine object
-// // ---------------------------------
-// auto engine = std::make_unique<driving::Engine>(670);
-// engine->start();
+    // ---------------------------------
+    // -- Testing runtime polymorphism
+    // ---------------------------------
 
-// // ---------------------------------
-// // -- Testing Vehicle object
-// // ---------------------------------
-// auto driver = std::make_shared<driving::Driver>("George", driving::Date(1, 1, 1988));
-// driver->print_date_of_birth();
-// driver->drive_vehicle();
-// driver->print_date_of_birth();
+    // // Type alias
+    // using Gas = driving::GasolineVehicle;
+    // using Electric = driving::ElectricVehicle;
 
-// ---------------------------------
-// -- Testing Vehicle object
-// ---------------------------------
-// // driver
-// auto michael_schumacher = std::make_shared<driving::Driver>("Michael Schumacher", driving::Date(3, 1, 1969));
-// // vehicle
-// auto vehicle = std::make_shared<driving::Vehicle>("Lada Niva", "Green", 75);
-// vehicle->set_driver(michael_schumacher);
-// vehicle->drive(20.76);
+    // // First vehicle
+    // auto lewis = std::make_shared<driving::Driver>("Lewis Hamilton", driving::Date(7, 1, 1985));
+    // auto model_s = std::make_shared<Electric>("Tesla Model S", "Red", 670, 20, 0.2);
+    // model_s->set_driver(lewis);
 
-// ---------------------------------
-// -- Testing ElectricVehicle object
-// ---------------------------------
-// // driver
-// auto lewis_hamilton = std::make_shared<driving::Driver>("Lewis Hamilton", driving::Date(7, 1, 1985));
-// // vehicle
-// auto tesla_model_s = std::make_shared<driving::ElectricVehicle>("Tesla Model S", "Red", 670, 20, 0.2);
-// tesla_model_s->set_driver(lewis_hamilton);
-// tesla_model_s->full_recharge();
-// tesla_model_s->display_battery_level();
-// tesla_model_s->drive(30000);
+    // // Second vehicle
+    // auto alain = std::make_shared<driving::Driver>("Alain Prost", driving::Date(24, 2, 1955));
+    // auto mustang = std::make_shared<Gas>("Ford Mustang", "Black", 300, 60.0, 0.12);
+    // mustang->set_driver(alain);
 
-// ---------------------------------
-// -- Testing GasolineVehicle object
-// ---------------------------------
-// // driver
-// auto alain_prost = std::make_shared<driving::Driver>("Alain Prost", driving::Date(24, 2, 1955));
-// // vehicle
-// auto ford_mustang = std::make_shared<driving::GasolineVehicle>("Ford Mustang", "Black", 300, 60.0, 0.12);
-// ford_mustang->set_driver(alain_prost);
-// ford_mustang->drive(200);
-// ford_mustang->refuel();
+    // Which drive() is used?
+    // model_s->drive(2000);
+    // std::cout << "================" << '\n';
+    // mustang->drive(2000);
 
-// ---------------------------------
-// -- Testing runtime polymorphism
-// ---------------------------------
+    // All vehicle types
+    // test_drive(model_s, 2000);
+    // test_drive(mustang, 3000);
 
-// // Type alias
-// using Gas = driving::GasolineVehicle;
-// using Electric = driving::ElectricVehicle;
-
-// // First vehicle
-// auto lewis = std::make_shared<driving::Driver>("Lewis Hamilton", driving::Date(7, 1, 1985));
-// auto model_s = std::make_shared<Electric>("Tesla Model S", "Red", 670, 20, 0.2);
-// model_s->set_driver(lewis);
-
-// // Second vehicle
-// auto alain = std::make_shared<driving::Driver>("Alain Prost", driving::Date(24, 2, 1955));
-// auto mustang = std::make_shared<Gas>("Ford Mustang", "Black", 300, 60.0, 0.12);
-// mustang->set_driver(alain);
-
-// // All vehicle types
-// std::vector<std::shared_ptr<driving::Vehicle>> vehicles{model_s, mustang};
-// drive_vehicles(vehicles, 35.5);
-
-// // Electric vehicles only
-// std::vector<std::shared_ptr<Electric>> electric_vehicles{model_s};
-// drive_electric_vehicles(electric_vehicles, 22.5);
-
-// // Gasoline vehicles only
-// std::vector<std::shared_ptr<Gas>>
-//     gasoline_vehicles{mustang};
-// drive_gas_vehicles(gasoline_vehicles, 128.3);
-// }
-
+    // test_drive_ev(model_s, 2000);
+    // std::cout << "================" << '\n';
+    // test_drive_gas(mustang, 3000);
+}
 
 //</>--- code #12
 //=====================
