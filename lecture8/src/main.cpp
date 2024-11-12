@@ -1,15 +1,5 @@
 
 
-// class A {
-// };
-
-// class B {
-// };
-
-// int main() {
-//     B b(3, 4);
-// }
-
 // //</>--- code #1
 // //=====================
 
@@ -145,20 +135,12 @@
 #include "driving/engine.hpp"
 #include "driving/vehicle.hpp"
 
-
 // definitions
 
 // void test_drive(std::shared_ptr<driving::Vehicle> vehicle, double distance) {
 //     vehicle->drive(distance);
 // }
 
-// void test_drive(std::shared_ptr<driving::ElectricVehicle> vehicle, double distance) {
-//     vehicle->drive(distance);
-// }
-
-// void test_drive(std::shared_ptr<driving::GasolineVehicle> vehicle, double distance) {
-//     vehicle->drive(distance);
-// }
 
 int main() {
     // // ---------------------------------
@@ -173,9 +155,9 @@ int main() {
     // tesla_model_s->display_battery_level();
     // tesla_model_s->drive(30000);
 
-    // // ---------------------------------
-    // // -- Testing GasolineVehicle object
-    // // ---------------------------------
+    // ---------------------------------
+    // -- Testing GasolineVehicle object
+    // ---------------------------------
     // // driver
     // auto alain_prost = std::make_shared<driving::Driver>("Alain Prost", driving::Date(24, 2, 1955));
     // // vehicle
@@ -184,9 +166,9 @@ int main() {
     // ford_mustang->drive(200);
     // ford_mustang->refuel();
 
-    // // ---------------------------------
-    // // -- Testing runtime polymorphism
-    // // ---------------------------------
+    // ---------------------------------
+    // -- Testing runtime polymorphism
+    // ---------------------------------
 
     // // Type alias
     // using Gas = driving::GasolineVehicle;
@@ -202,15 +184,17 @@ int main() {
     // auto mustang = std::make_shared<Gas>("Ford Mustang", "Black", 300, 60.0, 0.12);
     // mustang->set_driver(alain);
 
-    // // Which drive() is used?
-    // // model_s->drive(2000);
-    // // std::cout << "================" << '\n';
-    // // mustang->drive(2000);
+    // // // Which drive() is used?
+    // // // model_s->drive(2000);
+    // // // std::cout << "================" << '\n';
+    // // // mustang->drive(2000);
 
     // // All vehicle types
     // test_drive(model_s, 2000);
     // std::cout << "================" << '\n';
     // test_drive(mustang, 3000);
+
+    // std::vector<std::shared_ptr<driving::Vehicle>> v;
 }
 
 //</>--- code #12
