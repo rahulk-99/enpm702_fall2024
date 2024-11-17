@@ -45,15 +45,53 @@ This lecture provides an in-depth discussion on pointers, references, memory all
     * Discusses the characteristics of references, their safety compared to pointers, and practical use cases.
     * Highlights differences between pointers and references.
 
-# Lecture 4: STL Containers
+# Lecture 4: The C++ Standard Library - Containers
+
+This lecture provides an in-depth discussion for the following containers from the C++ Standard Library.
+  - std::string
+  - std::array
+  - std::vector
 
 # Lecture 5: Functions
 
+This lecture covers C++ functions, including:
+
+  - Declaration, definition, and usage
+  - Argument passing methods: value, reference, const-reference, pointer
+  - Return types: value and reference
+  - Benefits: modularity, reusability, debugging
+  - Advanced topics:
+    - Function overloading
+    - Default arguments
+    - Stack frames
+    - Recursion
+    - main() function structure
+
+Practical exercises reinforce these concepts, preparing for the upcoming smart pointers lecture.
+
 # Lecture 6: Smart Pointers
+
+Overview of smart pointers:
+
+  - Unique pointers
+  - Shared pointers
+  - Weak pointers
 
 # Lecture 7: OOP (Part 1)
 
+This lecture covers the design and implementation phases of OOP, including class design, method definitions, access specifiers, constructors, destructors, and static attributes and methods. It also includes several code examples and exercises, guiding students through creating and managing objects, accessing attributes, and implementing OOP principles in C++. The document highlights best practices and common conventions used in C++ programming.
+
 # Lecture 8: OOP (Part 2)
+
+This lecture focuses on advanced concepts in object-oriented programming (OOP). The lecture covers several important topics:
+
+  - **Exception Handling**: Detailed explanations of how to manage runtime errors using try, catch, and throw in C++. It includes examples of basic exception handling, throwing exceptions, catching exceptions, and handling multiple exceptions. The key terms such as "throwing an exception" and "catching an exception" are discussed with code examples.
+
+  - **Relationships in OOP**:
+    - *Association*: A type of relationship between two classes where one class is aware of the other. Different kinds of associations are explained, including directional, unidirectional, and bidirectional associations.
+    - *Aggregation*: A whole-part relationship where the part can exist independently of the whole.
+    - *Composition*: A stronger form of association where the part cannot exist independently of the whole and is destroyed when the whole is destroyed.
+    - *Inheritance*: The concept of inheritance is thoroughly discussed, including generalization-specialization relationships, inheritance specifiers (public, protected, private), and how constructors work in the context of inheritance. The lecture provides examples and tasks for students to work on, focusing on implementing derived classes like GasolineVehicle and ElectricVehicle.
 
 # Lecture 9: OOP (Part 3)
 
